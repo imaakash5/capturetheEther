@@ -26,15 +26,15 @@ contract TestGuessNumber is Test {
         mainContract.guesstheNumber{value: 1 ether}(35, payable(msg.sender));
         console.log(address(mainContract).balance, "contract balance after play");
         (bool isComplete) = mainContract.isComplete();
-        assertEq(isComplete,false);
+        assertEq(isComplete, false);
     }
 
-    function test_guesstheNumber_positive() external{
+    function test_guesstheNumber_positive() external {
         vm.prank(admin);
         console.log(address(mainContract).balance, "contract balance before play");
         mainContract.guesstheNumber{value: 1 ether}(42, payable(msg.sender));
         console.log(address(mainContract).balance, "contract balance after play");
         (bool isComplete) = mainContract.isComplete();
-        assertEq(isComplete,true);     
+        assertEq(isComplete, true);
     }
 }
