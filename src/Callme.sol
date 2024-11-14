@@ -1,11 +1,10 @@
 //SPDX - License - Identifier : Unlicensed
 pragma solidity ^0.8.23;
 
-contract Callme{
-
+contract Callme {
     bool public isComplete = false;
 
-    function callme() public{
+    function callme() public {
         isComplete = true;
     }
 }
