@@ -10,8 +10,11 @@ contract Tokensale {
     }
 
     function isComplete() external view returns (bool isComplete_) {
-         if(address(this).balance < 1 ether)  //"balance > 1 ether");
+        if (
+            address(this).balance < 1 ether //"balance > 1 ether");
+        ) {
             isComplete_ = true;
+        }
     }
 
     function buy(uint256 numberOfTokens) external payable {

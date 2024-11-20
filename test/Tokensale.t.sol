@@ -15,11 +15,11 @@ contract TestTokensale is Test {
         mainContract = new Tokensale{value: 1 ether}();
     }
 
-    function test_setUp() view external {
+    function test_setUp() external view {
         assertEq(address(mainContract).balance, 1 ether);
     }
 
-    function test_isComplete() view external {
+    function test_isComplete() external view {
         bool isComplete = mainContract.isComplete();
         assertEq(isComplete, false);
     }
@@ -31,12 +31,12 @@ contract TestTokensale is Test {
         assertEq(tokensBalance, 10);
     }
 
-    function test_sell() external{
+    function test_sell() external {
         vm.deal(address(this), 10 ether);
         mainContract.buy{value: 10 ether}(10);
         mainContract.sell(5);
-        assertEq(address(this).balance,5 ether);
+        assertEq(address(this).balance, 5 ether);
     }
 
-    receive() external payable{}
+    receive() external payable {}
 }
