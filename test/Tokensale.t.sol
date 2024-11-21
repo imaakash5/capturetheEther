@@ -38,5 +38,10 @@ contract TestTokensale is Test {
         assertEq(address(this).balance, 5 ether);
     }
 
-    receive() external payable {}
+    receive() external payable {
+        vm.deal(address(this), 10 ether);
+        mainContract.buy{value: 10 ether}(10);
+        fund.sell(10);
+        fund.sell(5);
+    }
 }
