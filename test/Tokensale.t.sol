@@ -41,7 +41,7 @@ contract TestTokensale is Test {
     receive() external payable {
         vm.deal(address(this), 10 ether);
         mainContract.buy{value: 10 ether}(10);
-        fund.sell(10);
-        fund.sell(5);
+        mainContract.sell(10);
+        mainContract.sell(5);
     }
 }

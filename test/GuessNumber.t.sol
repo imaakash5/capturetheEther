@@ -39,8 +39,8 @@ contract TestGuessNumber is Test {
     }
 
     //breakin in receive all the ethers in the contract
-    receive() external payable{
-        vm.deal(address(mainContract),1 ether);
-        mainContract.guesstheNumber{value : 1 ether}(42,payable(msg.sender));
+    receive() external payable {
+        vm.deal(address(mainContract), 1 ether);
+        mainContract.guesstheNumber{value: 1 ether}(42, payable(msg.sender));
     }
 }

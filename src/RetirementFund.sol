@@ -39,5 +39,6 @@ contract RetirementFund {
             payable(collector).transfer(address(this).balance);
         }
     }
-    receive() external payable{}
+
+    receive() external payable {}
 }

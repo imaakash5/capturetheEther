@@ -7,7 +7,8 @@ import {RetirementFund} from "../src/RetirementFund.sol";
 contract TestRetirementFund is Test {
     RetirementFund fund;
     address admin;
-    address user1;address payable user2;
+    address user1;
+    address payable user2;
 
     function setUp() external {
         admin = vm.addr(12334);
@@ -36,7 +37,7 @@ contract TestRetirementFund is Test {
         //assertEq(admin.balance, 1 ether - 100000000000000000);
     }
 
-    function test_collectPenalty()external{
+    function test_collectPenalty() external {
         vm.deal(admin, 1 ether);
         vm.prank(admin);
         fund.depositFunds{value: 1 ether}();
@@ -46,10 +47,10 @@ contract TestRetirementFund is Test {
         fund.withdraw();
         vm.prank(user1);
         fund.collectPenalty(user2);
-        //assertEq(user2.balance,0.1 ether);      
+        //assertEq(user2.balance,0.1 ether);
     }
 
-    receive() payable external{
+    receive() external payable {
         vm.prank(admin);
         fund.withdraw();
     }
