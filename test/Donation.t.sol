@@ -25,6 +25,7 @@ contract TestDonation is Test {
     function test_donate() external {
         vm.deal(user1, 5 ether);
         vm.prank(user1);
+        
         mainContract.donate{value: 3 ether}();
         assertEq(address(mainContract).balance, 4 ether);
     }

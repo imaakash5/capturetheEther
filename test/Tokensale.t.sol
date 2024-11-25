@@ -34,6 +34,7 @@ contract TestTokensale is Test {
     function test_sell() external {
         vm.deal(address(this), 10 ether);
         mainContract.buy{value: 10 ether}(10);
+        vm.expectRevert();
         mainContract.sell(5);
         assertEq(address(this).balance, 5 ether);
     }
